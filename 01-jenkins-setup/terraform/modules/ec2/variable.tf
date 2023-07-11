@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "us-west-2"
+  region = "eu-west-2"
 }
 
 variable "instance_name" {
@@ -9,7 +9,7 @@ variable "instance_name" {
 
 variable "ami_id" {
   type = string
-  default = "ami-0735c191cf914754d"
+  default = "ami-0eb260c4d5475b901"
 }
 
 variable "instance_type" {
@@ -19,12 +19,12 @@ variable "instance_type" {
 
 variable "key_name" {
   type = string
-  default = "techiescamp"
+  default = "londonkey"
 }
 
 variable "security_group_ids" {
   type    = list(string)
-  default = ["sg-01ce819e8d65269f0"]
+  default = [""]
 }
 
 variable "instance_count" {
@@ -34,5 +34,9 @@ variable "instance_count" {
 
 variable "subnet_ids" {
   type    = list(string)
-  default = ["subnet-058a7514ba8adbb07", "subnet-0dbcd1ac168414927", "subnet-032f5077729435858"]
+  default = ["", "", ""]
+}
+
+variable "vpc_id" {
+  description = "The ID of the VPC to use for the resources."
 }

@@ -32,3 +32,7 @@ resource "aws_efs_mount_target" "jenkins" {
   subnet_id        = var.subnet_ids[count.index]
   security_groups = [aws_security_group.efs_sg.id]
 }
+
+output "dns_name" {
+  value = aws_efs_file_system.jenkins.dns_name
+}

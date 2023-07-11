@@ -1,6 +1,6 @@
 resource "aws_security_group" "alb_sg" {
   name_prefix = "alb-sg"
-
+  vpc_id      = var.vpc_id
   ingress {
     from_port   = 80
     to_port     = 80
@@ -36,7 +36,7 @@ resource "aws_lb" "jenkins" {
 
 resource "aws_security_group" "instance_sg" {
   name_prefix = "jenkins-controller-sg"
-
+  vpc_id      = var.vpc_id
   ingress {
     from_port   = 22
     to_port     = 22

@@ -1,8 +1,14 @@
 ---
+- name: apt upgrade
+  apt: 
+   upgrade: yes
+   force_apt_get: yes
+
 - name: Update apt cache
   apt:
     update_cache: yes
-    
+    force_apt_get: yes
+
 - name: Install Python 3
   apt:
     name: python3
@@ -26,7 +32,13 @@
     state: latest
     executable: pip3
 
+- name: install java jre
+  apt: 
+    name: openjdk-17-jre
+    state: present
+        
 - name: Install Java JDK 17
   apt:
     name: openjdk-17-jdk
     state: present
+    install_recommends: no
